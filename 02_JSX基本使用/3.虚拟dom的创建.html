@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            color: orange;
+        }
+        .blue{
+            color:blueviolet;
+            font-family: '华文行楷';
+        }
+    </style>
+</head>
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+   
+     <script type="text/javascript">
+     let myID = 'aTguiGu';
+     let myData = 'qiAnDUan 0819';
+ 
+    // 原生js创建虚拟dom
+    let vDOM = React.createElement('h2',{id:myID.toLocaleUpperCase()},myData.toLocaleUpperCase());
+    //渲染
+    ReactDOM.render(vDOM,document.getElementById('test1'));
+     </script>
+
+     <!-- jsx创建虚拟dom -->
+     <script type="text/babel">
+      let vDOM1 = (
+          <div>
+              <h2 id={myID.toLocaleLowerCase()}>
+                  <span className='red'> {myData.toLocaleLowerCase()}</span>
+              </h2>
+              <h2 id={myID.toLocaleLowerCase()}>
+                  <span className='blue'> {myData.toLocaleUpperCase()}</span>
+              </h2>
+          </div>
+      )
+       ReactDOM.render(vDOM1,document.getElementById('test2'));
+     
+     </script>
+</body>
+</html>

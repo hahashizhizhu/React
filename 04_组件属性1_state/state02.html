@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>state</title>
+</head>
+<body>
+
+<div id="example"></div>
+
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+  
+ 
+  
+  //1.定义组件
+  class Weather extends React.Component{
+    constructor(props){
+      //console.log(props)
+      super(props)
+      //初始化状态
+      this.state = {
+        isGood:true
+      }
+      this.handlerClick = this.handlerClick.bind(this)
+    }
+    
+    //自定义一个响应点击的函数
+    handlerClick(){
+    //   let isPig = !this.state.isPig
+    //   this.setState({isPig})
+    let {isGood} = this.state
+    this.setState({isGood:!isGood})
+    }
+    
+    //重写父类的render
+    render(){
+      //console.log('render()')
+ 
+      return <h2 onClick={this.handlerClick}>今天真的是个{this.state.isGood?'好日子':'bad day!!!'}</h2>
+    }
+    
+  }
+  
+  //2.渲染
+  ReactDOM.render(<Weather/>,document.getElementById('example'))
+  
+</script>
+</body>
+</html>
+

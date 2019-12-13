@@ -5,25 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>react</title>
-
+    <title>Document</title>
 </head>
 
 <body>
     <div id="test"></div>
 
-    <!-- react 核心库  -->
+    <!-- 核心库 -->
     <script type="text/javascript" src="../js/react.development.js"></script>
-    <!-- react 的扩展库 -->
     <script type="text/javascript" src="../js/react-dom.development.js"></script>
-    <!-- 引入babel 解析jsx语法为js语法 -->
     <script type="text/javascript" src="../js/babel.min.js"></script>
-    <script type="text/babel">
-        //创建一个虚拟的dom
-        let vDOM = <h2> 人生若只如初见， 何事秋风悲画扇。 </h2>
 
-        //渲染虚拟dom到页面
-        ReactDOM.render(vDOM, document.getElementById('test'))
+    <script type="text/babel">
+
+        // 数据
+    let arr = ['韩非','焰灵姬','卫庄','张良'];
+
+    //创建虚拟dom
+    let vDOM = (
+    <div>
+        <h2>天行九歌</h2>
+        <ul>{
+            arr.map((item,index)=><li key={index}>{item}</li>)
+            
+            }
+        </ul>
+         <h3 style = {{color:'blue'}}>玄机科技有限公司</h3>
+         <input type="text"/>
+    </div>
+    );
+
+    //渲染dom
+    ReactDOM.render(vDOM,document.getElementById('test'));
+    
     </script>
 </body>
 
